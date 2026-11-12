@@ -1,0 +1,45 @@
+# ---- environments and caches (large, machine-specific) ----
+.venv/
+.venv-spark/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# ---- raw data: only publish it if you are allowed to share it ----
+financial_fraud_detection_dataset.csv
+sample_20_rows.csv
+
+# ---- generated data and databases (recreate by running the scripts) ----
+features_clean.csv
+fraud_detection.db
+spark_train.csv
+streaming_input/
+stream_scores.csv
+kafka_scores.csv
+unsupervised_scores_test.csv
+customer_risk.csv
+powerbi_export/
+
+# ---- trained models and Spark output ----
+*.joblib
+fraud_model_spark/
+spark-warehouse/
+metastore_db/
+derby.log
+
+# ---- run logs and alert ledger (can contain transaction details) ----
+alerts_log.csv
+kafka_alerts_log.csv
+spark_alerts.csv
+alert_ledger.jsonl
+
+# ---- secrets: never commit these ----
+.env
+*.key
+*token*
+*password*
+
+# ---- editor / OS ----
+.vscode/
+.DS_Store
+Thumbs.db

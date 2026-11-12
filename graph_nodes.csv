@@ -1,0 +1,27 @@
+node,type,fraud_rate,pagerank
+device:Desktop,device,0.1024,0.033064
+flag:international,flag,0.3696,0.014797
+flag:keyword,flag,0.4731,0.009408
+flag:night(0-5h),flag,0.2561,0.032488
+location:Kolkata,location,0.1024,0.014545
+merchant:Entertainment,merchant,0.1143,0.01388
+payment:NetBanking,payment,0.082,0.020456
+location:Chennai,location,0.1053,0.013223
+merchant:Utilities,merchant,0.0842,0.011849
+location:Pune,location,0.0859,0.014276
+merchant:Health,merchant,0.1007,0.012753
+payment:UPI,payment,0.1041,0.019735
+device:Mobile,device,0.0916,0.031562
+merchant:Food,merchant,0.1082,0.01423
+payment:PayPal,payment,0.0959,0.020513
+merchant:Grocery,merchant,0.0922,0.012887
+device:POS,device,0.095,0.032902
+merchant:Travel,merchant,0.0935,0.012234
+payment:Credit Card,payment,0.0988,0.019997
+location:Bengaluru,location,0.1035,0.014364
+payment:Debit Card,payment,0.1022,0.020152
+location:Delhi,location,0.0858,0.015034
+location:Hyderabad,location,0.0883,0.014698
+location:Mumbai,location,0.1053,0.015808
+merchant:Electronics,merchant,0.0754,0.012557
+merchant:Fashion,merchant,0.102,0.01285

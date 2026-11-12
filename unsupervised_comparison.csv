@@ -1,0 +1,4 @@
+Model,ROC_AUC,PR_AUC,Precision@top10%,Recall@top10%,Lift@top10%
+Isolation Forest,0.8441,0.3774,0.43,0.4479,4.4792
+Autoencoder,0.7844,0.3696,0.4,0.4167,4.1667
+One-Class SVM,0.7266,0.2673,0.36,0.375,3.75

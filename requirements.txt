@@ -1,0 +1,11 @@
+pandas
+numpy
+scikit-learn
+matplotlib
+joblib
+networkx
+streamlit
+plotly
+xgboost
+kafka-python
+# optional: pyspark (needs Java 17)
