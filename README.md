@@ -4,6 +4,8 @@ An end-to-end fraud analytics project: ETL, feature engineering, supervised and 
 models, graph analysis, a real-time scoring pipeline (Kafka), alerting, an interactive Streamlit
 dashboard and a four-page Power BI report.
 
+**[Live dashboard](https://financial-fraud-detection-zz8tgrzhhmvy6bv5i2qimr.streamlit.app/)** | Power BI screenshots below
+
 **Headline result:** on 1,000 held-out transactions (96 frauds), the model splits traffic into three
 tiers. **65% of transactions are cleared as LOW risk with zero fraud among them**, and reviewing the
 other 35% (MEDIUM + HIGH) catches all 96 frauds. Precision is limited (about 30% of HIGH alerts are
@@ -202,7 +204,7 @@ python -m streamlit run dashboard.py   # test locally, it falls back to demo_dat
 
 `requirements.txt` holds only the dashboard packages, pinned to the versions the model was trained with
 (a scikit-learn version mismatch can break loading the saved model). The full pipeline needs
-`requirements-pipeline.txt`. Live app: _add your `*.streamlit.app` link here after deploying_.
+`requirements-pipeline.txt`. Live app:[financial-fraud-detection.streamlit.app](https://financial-fraud-detection-zz8tgrzhhmvy6bv5i2qimr.streamlit.app/)
 
 ## Design decisions
 
