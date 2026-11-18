@@ -1,0 +1,47 @@
+{
+ "row": {
+  "Merchant_Category": "Food",
+  "Payment_Method": "NetBanking",
+  "Device_Type": "Desktop",
+  "Location": "Delhi",
+  "Transaction_Amount": 55.455,
+  "Is_International": 0.0,
+  "Previous_Transactions": 100.0,
+  "Average_Spend": 261.81,
+  "Account_Age_Days": 1012.5,
+  "hour": 12.0,
+  "day_of_week": 3.0,
+  "is_weekend": 0.0,
+  "is_night": 0.0,
+  "amount_to_avg_ratio": 0.2410660956238098,
+  "amount_minus_avg": -181.525,
+  "log_amount": 4.033443856710507,
+  "is_new_account": 0.0,
+  "txn_per_account_day": 0.09887066242591705,
+  "suspicious_keyword_flag": 0.0,
+  "customer_txn_number": 1.0,
+  "hours_since_last_txn": -1.0,
+  "intl_and_new_account": 0.0,
+  "intl_and_night": 0.0,
+  "risk_flag_count": 0.0
+ },
+ "locations": [
+  "Bengaluru",
+  "Chennai",
+  "Delhi",
+  "Hyderabad",
+  "Kolkata",
+  "Mumbai",
+  "Pune"
+ ],
+ "merchants": [
+  "Electronics",
+  "Entertainment",
+  "Fashion",
+  "Food",
+  "Grocery",
+  "Health",
+  "Travel",
+  "Utilities"
+ ]
+}

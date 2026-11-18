@@ -39,3 +39,6 @@ Thumbs.db
 
 # Power BI file embeds the data
 *.pbix
+
+!demo_data/
+!demo_data/**

@@ -142,6 +142,7 @@ on the files in `powerbi_export/`. The `.pbix` file is not committed because it 
 | `kafka_producer.py`, `kafka_consumer.py` | Step 6b: Kafka streaming |
 | `spark_streaming.py` | Step 6b: PySpark Structured Streaming (prepare / train / stream) |
 | `dashboard.py` | Step 7: Streamlit dashboard |
+| `make_demo_data.py` | Step 9: builds `demo_data/` for the deployed dashboard |
 | `export_powerbi.py` | Step 7: tidy CSVs for Power BI |
 | `screenshots/` | Power BI report page images used in this README |
 | `customer_risk.py` | Step 8: customer fraud-risk profile |
@@ -151,7 +152,7 @@ on the files in `powerbi_export/`. The `.pbix` file is not committed because it 
 ## How to run
 
 ```powershell
-python -m pip install -r requirements.txt
+python -m pip install -r requirements-pipeline.txt   # full pipeline (requirements.txt is dashboard-only, see Deployment)
 
 python main.py                       # explore
 python etl_feature_eng.py            # creates fraud_detection.db and features_clean.csv
@@ -187,6 +188,21 @@ pandas 3.0 warnings are harmless.
 **Email and Telegram alerts** are off by default and read credentials from environment variables
 (`ALERT_SENDER`, `ALERT_APP_PASSWORD`, `ALERT_RECIPIENT`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`).
 Never commit tokens or passwords.
+
+## Deployment (Streamlit Community Cloud)
+
+The dashboard is deployed from this repo. Generated files are git-ignored, so the deployed app
+reads a small committed `demo_data/` folder instead (scored stream, anomaly scores, model tables,
+the trained model and a tiny defaults file for the "Score a transaction" tab; no raw dataset).
+
+```powershell
+python make_demo_data.py     # builds demo_data/ and a dashboard-only requirements.txt
+python -m streamlit run dashboard.py   # test locally, it falls back to demo_data/ when files are missing
+```
+
+`requirements.txt` holds only the dashboard packages, pinned to the versions the model was trained with
+(a scikit-learn version mismatch can break loading the saved model). The full pipeline needs
+`requirements-pipeline.txt`. Live app: _add your `*.streamlit.app` link here after deploying_.
 
 ## Design decisions
 

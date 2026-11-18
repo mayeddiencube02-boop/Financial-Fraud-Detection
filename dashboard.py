@@ -11,6 +11,7 @@ Reads files created in earlier steps:
   model_comparison.csv, unsupervised_comparison.csv, graph_nodes.csv, graph_edges.csv
   best_fraud_model.joblib      (Step 3)   - for the 'score a transaction' tool
 """
+import json
 import os
 import joblib
 import numpy as np
@@ -20,7 +21,13 @@ import plotly.graph_objects as go
 import streamlit as st
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-P = lambda name: os.path.join(PROJECT_DIR, name)
+
+
+def P(*parts):
+    """Path of a data file: the project folder first, then demo_data/ (what gets deployed)."""
+    direct = os.path.join(PROJECT_DIR, *parts)
+    return direct if os.path.exists(direct) else os.path.join(PROJECT_DIR, "demo_data", *parts)
+
 
 st.set_page_config(page_title="Fraud Monitoring", page_icon="🛡️", layout="wide")
 
@@ -236,7 +243,7 @@ with tab_models:
     if edges is not None:
         st.markdown("**Attributes most often seen together in fraud (graph analysis, Step 5)**")
         st.dataframe(edges.head(15), hide_index=True, use_container_width=True)
-    graph_png = os.path.join(PROJECT_DIR, "plots", "fraud_graph.png")
+    graph_png = P("plots", "fraud_graph.png")
     if os.path.exists(graph_png):
         st.image(graph_png, caption="Fraud co-occurrence network")
     st.caption("The graph shows co-occurrence, not fraud rings: the dataset has no shared device, IP or account links.")
@@ -245,21 +252,42 @@ with tab_models:
 with tab_score:
     st.markdown("Try the model on a hypothetical transaction. Fields not shown use typical (median) values.")
     mp = P("best_fraud_model.joblib")
-    base_path = P("features_clean.csv")
-    if not (os.path.exists(mp) and os.path.exists(base_path)):
-        st.info("Needs best_fraud_model.joblib and features_clean.csv.")
+
+    @st.cache_data
+    def scorer_defaults(features):
+        """Typical values for fields the form does not ask for: from the small JSON shipped
+        with the deployed app, or computed from features_clean.csv when run locally."""
+        js, fc = P("scorer_defaults.json"), P("features_clean.csv")
+        if os.path.exists(js):
+            try:
+                with open(js, encoding="utf-8") as fh:
+                    return json.load(fh)
+            except (ValueError, OSError):
+                pass                      # unreadable file: fall back to features_clean.csv below
+        if os.path.exists(fc):
+            base = pd.read_csv(fc)
+            row = {col: (float(base[col].median()) if pd.api.types.is_numeric_dtype(base[col])
+                         else str(base[col].mode()[0])) for col in features}
+            return {"row": row, "locations": sorted(base["Location"].unique().tolist()),
+                    "merchants": sorted(base["Merchant_Category"].unique().tolist())}
+        return None
+
+    if not os.path.exists(mp):
+        st.info("Needs best_fraud_model.joblib (run supervised_models.py, or make_demo_data.py for deployment).")
     else:
         bundle = joblib.load(mp)
-        base = pd.read_csv(base_path)
+        defaults = scorer_defaults(tuple(bundle["features"]))
+        if defaults is None:
+            st.info("Needs scorer_defaults.json or features_clean.csv.")
+            st.stop()
         a, b, c = st.columns(3)
         hour = a.slider("Hour of day", 0, 23, 14)
         amount = a.number_input("Amount", 0.0, 5000.0, 80.0)
         is_intl = b.checkbox("International")
         kw = b.checkbox("Suspicious keyword")
-        loc = c.selectbox("Location", sorted(base["Location"].unique()))
-        merch = c.selectbox("Merchant", sorted(base["Merchant_Category"].unique()))
-        row = {col: (base[col].median() if pd.api.types.is_numeric_dtype(base[col]) else base[col].mode()[0])
-               for col in bundle["features"]}
+        loc = c.selectbox("Location", defaults["locations"])
+        merch = c.selectbox("Merchant", defaults["merchants"])
+        row = dict(defaults["row"])
         night = int(0 <= hour <= 5)
         avg = float(row["Average_Spend"])
         row.update({"hour": hour, "Transaction_Amount": amount, "Is_International": int(is_intl),

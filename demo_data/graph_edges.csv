@@ -1,0 +1,264 @@
+source,target,shared_fraud_cases
+device:Desktop,flag:night(0-5h),113
+device:POS,flag:night(0-5h),100
+device:Mobile,flag:night(0-5h),100
+flag:night(0-5h),payment:UPI,72
+device:Desktop,flag:international,66
+flag:night(0-5h),payment:PayPal,65
+flag:night(0-5h),payment:Debit Card,65
+flag:international,flag:night(0-5h),62
+flag:night(0-5h),payment:NetBanking,59
+flag:night(0-5h),payment:Credit Card,52
+flag:night(0-5h),merchant:Food,52
+flag:night(0-5h),location:Mumbai,51
+flag:night(0-5h),location:Kolkata,50
+device:POS,flag:international,50
+flag:night(0-5h),location:Chennai,48
+device:Mobile,flag:international,47
+device:Mobile,payment:Debit Card,47
+flag:night(0-5h),location:Hyderabad,45
+flag:keyword,flag:night(0-5h),44
+device:POS,flag:keyword,44
+device:Desktop,payment:UPI,44
+flag:night(0-5h),merchant:Health,42
+flag:night(0-5h),location:Delhi,42
+device:POS,payment:Credit Card,41
+flag:night(0-5h),merchant:Fashion,40
+flag:night(0-5h),location:Bengaluru,40
+device:Mobile,flag:keyword,40
+flag:night(0-5h),merchant:Entertainment,39
+flag:night(0-5h),merchant:Travel,39
+device:Desktop,flag:keyword,39
+flag:night(0-5h),merchant:Grocery,38
+flag:night(0-5h),location:Pune,37
+device:Desktop,payment:NetBanking,37
+flag:international,payment:Debit Card,36
+device:POS,payment:UPI,36
+device:POS,merchant:Food,36
+flag:international,payment:UPI,35
+flag:night(0-5h),merchant:Utilities,34
+device:Mobile,payment:PayPal,34
+flag:keyword,payment:Credit Card,32
+device:POS,payment:PayPal,32
+device:Desktop,payment:Debit Card,32
+flag:international,payment:NetBanking,32
+device:Desktop,payment:PayPal,32
+flag:international,payment:Credit Card,31
+device:POS,location:Mumbai,29
+flag:night(0-5h),merchant:Electronics,29
+flag:international,payment:PayPal,29
+device:Mobile,location:Kolkata,28
+device:Desktop,merchant:Entertainment,28
+device:Desktop,location:Kolkata,28
+device:Desktop,merchant:Health,28
+device:Desktop,location:Pune,28
+device:Mobile,payment:Credit Card,28
+device:POS,location:Bengaluru,28
+flag:international,location:Kolkata,27
+device:Desktop,payment:Credit Card,27
+device:Desktop,location:Hyderabad,27
+flag:international,location:Delhi,27
+flag:international,merchant:Entertainment,27
+flag:keyword,payment:Debit Card,26
+device:Mobile,location:Mumbai,26
+device:POS,payment:NetBanking,26
+device:Mobile,location:Chennai,26
+flag:keyword,payment:PayPal,26
+flag:international,location:Pune,26
+device:Mobile,merchant:Grocery,25
+flag:international,location:Bengaluru,25
+flag:keyword,location:Mumbai,24
+device:POS,payment:Debit Card,24
+device:Mobile,merchant:Entertainment,24
+device:Desktop,location:Bengaluru,24
+flag:keyword,location:Bengaluru,24
+device:Desktop,merchant:Utilities,24
+device:Desktop,location:Mumbai,23
+device:POS,merchant:Fashion,23
+flag:international,location:Hyderabad,23
+device:Desktop,merchant:Travel,23
+device:Mobile,location:Delhi,22
+device:Mobile,payment:NetBanking,22
+location:Delhi,payment:PayPal,22
+flag:international,merchant:Fashion,22
+flag:keyword,payment:NetBanking,22
+flag:keyword,merchant:Food,22
+device:POS,location:Chennai,22
+device:POS,location:Delhi,22
+device:Mobile,merchant:Fashion,21
+flag:international,merchant:Health,21
+flag:keyword,merchant:Entertainment,21
+flag:international,merchant:Travel,21
+device:Desktop,location:Chennai,21
+device:POS,merchant:Health,21
+device:POS,location:Pune,21
+device:Desktop,location:Delhi,21
+location:Bengaluru,payment:Debit Card,21
+flag:international,merchant:Food,21
+device:Mobile,merchant:Food,21
+device:POS,merchant:Entertainment,20
+device:POS,location:Hyderabad,20
+merchant:Entertainment,payment:Credit Card,20
+merchant:Food,payment:PayPal,20
+location:Kolkata,payment:Debit Card,20
+device:Mobile,payment:UPI,20
+merchant:Fashion,payment:UPI,19
+device:Mobile,location:Bengaluru,19
+merchant:Health,payment:Debit Card,19
+flag:international,flag:keyword,19
+flag:international,merchant:Electronics,18
+location:Mumbai,payment:Debit Card,18
+flag:keyword,location:Chennai,18
+device:Desktop,merchant:Fashion,18
+location:Pune,payment:UPI,18
+location:Hyderabad,payment:UPI,18
+device:POS,merchant:Electronics,18
+flag:international,merchant:Utilities,18
+device:Desktop,merchant:Grocery,18
+flag:international,location:Mumbai,18
+device:Mobile,merchant:Travel,17
+device:POS,location:Kolkata,17
+location:Chennai,payment:Debit Card,17
+device:Desktop,merchant:Food,17
+flag:keyword,payment:UPI,17
+flag:international,location:Chennai,17
+device:Mobile,location:Hyderabad,17
+location:Mumbai,payment:Credit Card,16
+flag:keyword,merchant:Health,16
+location:Chennai,payment:UPI,16
+location:Mumbai,payment:NetBanking,16
+flag:keyword,location:Pune,16
+device:POS,merchant:Travel,16
+device:Mobile,merchant:Utilities,16
+merchant:Entertainment,payment:PayPal,16
+device:Desktop,merchant:Electronics,16
+location:Kolkata,payment:Credit Card,16
+merchant:Grocery,payment:UPI,16
+location:Bengaluru,payment:UPI,15
+flag:keyword,merchant:Travel,15
+location:Mumbai,payment:PayPal,15
+flag:keyword,location:Hyderabad,15
+device:POS,merchant:Grocery,15
+merchant:Food,payment:Debit Card,15
+device:Mobile,merchant:Electronics,15
+merchant:Grocery,payment:Credit Card,15
+merchant:Food,payment:NetBanking,15
+flag:keyword,merchant:Grocery,15
+flag:international,merchant:Grocery,15
+location:Chennai,payment:Credit Card,15
+flag:keyword,location:Kolkata,15
+merchant:Utilities,payment:Debit Card,15
+location:Chennai,merchant:Food,14
+location:Bengaluru,merchant:Entertainment,14
+location:Mumbai,merchant:Fashion,14
+merchant:Fashion,payment:PayPal,14
+location:Hyderabad,payment:PayPal,14
+merchant:Fashion,payment:Debit Card,13
+device:Mobile,location:Pune,13
+location:Hyderabad,payment:Credit Card,13
+merchant:Entertainment,payment:NetBanking,13
+merchant:Travel,payment:Credit Card,13
+merchant:Health,payment:PayPal,13
+location:Mumbai,payment:UPI,13
+location:Bengaluru,payment:NetBanking,13
+location:Kolkata,payment:NetBanking,13
+location:Kolkata,merchant:Health,13
+location:Delhi,payment:Credit Card,13
+merchant:Food,payment:Credit Card,12
+merchant:Entertainment,payment:UPI,12
+location:Pune,payment:PayPal,12
+merchant:Health,payment:UPI,12
+location:Pune,payment:NetBanking,12
+merchant:Food,payment:UPI,12
+location:Pune,payment:Credit Card,12
+location:Mumbai,merchant:Food,12
+location:Kolkata,payment:PayPal,12
+location:Kolkata,merchant:Food,12
+location:Delhi,payment:NetBanking,12
+location:Kolkata,payment:UPI,12
+device:Mobile,merchant:Health,12
+flag:keyword,merchant:Fashion,12
+location:Chennai,payment:PayPal,12
+location:Chennai,merchant:Entertainment,11
+merchant:Travel,payment:NetBanking,11
+location:Chennai,merchant:Travel,11
+flag:keyword,location:Delhi,11
+location:Bengaluru,payment:Credit Card,11
+location:Bengaluru,merchant:Health,11
+merchant:Electronics,payment:UPI,11
+merchant:Utilities,payment:Credit Card,11
+merchant:Travel,payment:UPI,11
+merchant:Electronics,payment:Debit Card,11
+flag:keyword,merchant:Electronics,11
+location:Bengaluru,payment:PayPal,11
+location:Mumbai,merchant:Entertainment,11
+location:Pune,merchant:Food,11
+merchant:Travel,payment:Debit Card,11
+location:Hyderabad,merchant:Entertainment,11
+merchant:Entertainment,payment:Debit Card,11
+flag:keyword,merchant:Utilities,11
+location:Pune,merchant:Fashion,11
+merchant:Travel,payment:PayPal,10
+location:Bengaluru,merchant:Travel,10
+location:Delhi,merchant:Entertainment,10
+merchant:Health,payment:NetBanking,10
+merchant:Grocery,payment:NetBanking,10
+location:Hyderabad,payment:NetBanking,10
+location:Delhi,payment:Debit Card,10
+location:Kolkata,merchant:Fashion,10
+location:Mumbai,merchant:Travel,10
+merchant:Fashion,payment:Credit Card,10
+device:POS,merchant:Utilities,10
+merchant:Utilities,payment:NetBanking,10
+location:Hyderabad,merchant:Food,10
+merchant:Electronics,payment:NetBanking,10
+location:Chennai,payment:NetBanking,9
+location:Delhi,merchant:Fashion,9
+location:Delhi,merchant:Grocery,9
+location:Pune,merchant:Health,9
+merchant:Grocery,payment:PayPal,9
+location:Mumbai,merchant:Grocery,9
+location:Hyderabad,payment:Debit Card,9
+location:Kolkata,merchant:Grocery,9
+merchant:Electronics,payment:PayPal,9
+location:Bengaluru,merchant:Utilities,8
+location:Hyderabad,merchant:Health,8
+location:Pune,merchant:Grocery,8
+location:Delhi,payment:UPI,8
+merchant:Electronics,payment:Credit Card,8
+location:Chennai,merchant:Grocery,8
+location:Delhi,merchant:Travel,8
+merchant:Grocery,payment:Debit Card,8
+location:Delhi,merchant:Electronics,8
+location:Hyderabad,merchant:Electronics,8
+location:Delhi,merchant:Food,8
+location:Kolkata,merchant:Entertainment,8
+location:Hyderabad,merchant:Utilities,8
+location:Mumbai,merchant:Utilities,8
+location:Pune,payment:Debit Card,8
+location:Bengaluru,merchant:Grocery,8
+merchant:Utilities,payment:PayPal,7
+location:Pune,merchant:Entertainment,7
+location:Pune,merchant:Utilities,7
+location:Mumbai,merchant:Electronics,7
+location:Kolkata,merchant:Travel,7
+location:Bengaluru,merchant:Fashion,7
+location:Hyderabad,merchant:Travel,7
+location:Bengaluru,merchant:Food,7
+location:Kolkata,merchant:Utilities,7
+location:Chennai,merchant:Electronics,7
+merchant:Health,payment:Credit Card,7
+location:Hyderabad,merchant:Grocery,7
+location:Mumbai,merchant:Health,7
+merchant:Utilities,payment:UPI,7
+location:Chennai,merchant:Health,7
+location:Delhi,merchant:Utilities,7
+location:Kolkata,merchant:Electronics,7
+location:Chennai,merchant:Fashion,6
+merchant:Fashion,payment:NetBanking,6
+location:Bengaluru,merchant:Electronics,6
+location:Delhi,merchant:Health,6
+location:Pune,merchant:Electronics,6
+location:Chennai,merchant:Utilities,5
+location:Hyderabad,merchant:Fashion,5
+location:Pune,merchant:Travel,3
