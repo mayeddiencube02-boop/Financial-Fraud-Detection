@@ -2,7 +2,7 @@
 
 An end-to-end fraud analytics project: ETL, feature engineering, supervised and unsupervised
 models, graph analysis, a real-time scoring pipeline (Kafka), alerting, an interactive Streamlit
-dashboard and a Power BI export.
+dashboard and a four-page Power BI report.
 
 **Headline result:** on 1,000 held-out transactions (96 frauds), the model splits traffic into three
 tiers. **65% of transactions are cleared as LOW risk with zero fraud among them**, and reviewing the
@@ -90,6 +90,44 @@ MEDIUM tier used above, so the two are different trade-offs rather than a better
 **Customer risk profile:** 3,847 customers scored. LOW 2,304 (0.3% have a confirmed fraud),
 MEDIUM 592 (24%), HIGH 951 (34%). 98.7% of customers with a confirmed fraud land in MEDIUM or HIGH.
 
+## Power BI report
+
+A four-page report built on the tidy CSVs from `export_powerbi.py` (the scored 1,000-transaction
+stream, tier summaries and model tables). Headline numbers match the Streamlit dashboard:
+1,000 transactions, 257 HIGH-risk alerts, 76 frauds caught by HIGH (79.17% recall, 29.57% alert precision).
+
+**Overview**: KPI cards, transactions by risk tier, HIGH-risk alerts by merchant category.
+
+![Overview](screenshots/overview.png)
+
+**Heatmap**: fraud and alert intensity by hour of day and day of week (matrix with conditional formatting).
+Fraud concentrates between 00:00 and 05:59.
+
+![Heatmap](screenshots/heatmap.png)
+
+**Anomaly scores**: unsupervised anomaly scores against the supervised risk score, one point per transaction.
+
+![Anomaly scores](screenshots/anomalyscores.png)
+
+**Alerts**: the 257 HIGH-risk transactions, ready for an analyst to work through.
+
+![Alerts](screenshots/alerts.png)
+
+DAX measures used:
+
+```
+Total Transactions  = COUNTROWS(fact_transactions)
+High Risk Alerts    = SUM(fact_transactions[Is_High_Risk])
+Total Frauds        = SUM(fact_transactions[Fraudulent])
+Frauds Caught (HIGH)= SUM(fact_transactions[Caught_By_High])
+Recall (HIGH)       = DIVIDE([Frauds Caught (HIGH)], [Total Frauds])
+Alert Precision     = DIVIDE([Frauds Caught (HIGH)], [High Risk Alerts])
+Avg Risk Score      = AVERAGE(fact_transactions[Risk_Score])
+```
+
+To rebuild it: run `python export_powerbi.py`, then in Power BI Desktop use **Get data → Text/CSV**
+on the files in `powerbi_export/`. The `.pbix` file is not committed because it embeds a copy of the data.
+
 ## Project files
 
 | File | Purpose |
@@ -105,6 +143,7 @@ MEDIUM 592 (24%), HIGH 951 (34%). 98.7% of customers with a confirmed fraud land
 | `spark_streaming.py` | Step 6b: PySpark Structured Streaming (prepare / train / stream) |
 | `dashboard.py` | Step 7: Streamlit dashboard |
 | `export_powerbi.py` | Step 7: tidy CSVs for Power BI |
+| `screenshots/` | Power BI report page images used in this README |
 | `customer_risk.py` | Step 8: customer fraud-risk profile |
 | `hashchain_log.py` | Step 8: tamper-evident alert ledger |
 | `telegram_alerts.py` | Step 8: mobile alerts through a Telegram bot |

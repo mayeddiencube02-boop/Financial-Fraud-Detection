@@ -36,3 +36,6 @@ alert_ledger.jsonl
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Power BI file embeds the data
+*.pbix
